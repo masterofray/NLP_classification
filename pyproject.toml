@@ -1,0 +1,31 @@
+[build-system]
+requires = [ "setuptools",]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "predictive2024"
+readme = "README.md"
+dynamic = [ "dependencies", "version",]
+
+[project.scripts]
+predictive2024 = "predictive2024.__main__:main"
+
+[tool.kedro]
+package_name = "predictive2024"
+project_name = "Predictive2024"
+kedro_init_version = "0.19.5"
+tools = [ "Data Structure",]
+example_pipeline = "False"
+source_dir = "src"
+
+[project.entry-points."kedro.hooks"]
+
+[tool.setuptools.dynamic.dependencies]
+file = "requirements.txt"
+
+[tool.setuptools.dynamic.version]
+attr = "predictive2024.__version__"
+
+[tool.setuptools.packages.find]
+where = [ "src",]
+namespaces = false
